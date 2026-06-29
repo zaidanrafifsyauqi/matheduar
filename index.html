@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Math AR Adventure</title>
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+   <audio id="bgMusic" autoplay loop>
+    <source src="assets/audio/audio.mp3" type="audio/mpeg">
+</audio>
+
+<div class="sky">
+
+    <div class="sun">
+        ☀️
+    </div>
+
+    <div class="cloud cloud1">☁️</div>
+    <div class="cloud cloud2">☁️</div>
+    <div class="cloud cloud3">☁️</div>
+    <div class="floating cube">🧊</div>
+<div class="floating ball">⚽</div>
+<div class="floating box">📦</div>
+<div class="floating cone">🔺</div>
+<div class="tree-left">🌳</div>
+<div class="tree-right">🌳</div>
+
+    <div class="game-card">
+
+        <h1>
+            🌟 Math AR Adventure 🌟
+        </h1>
+
+        <h3>
+            Bangun Ruang 3D
+        </h3>
+
+        <div class="shapes">
+            ⚽ 🧊 📦 🔺
+        </div>
+
+        <div class="mission">
+
+            <h3>🎯 Misi Hari Ini</h3>
+
+            <p>✅ Temukan Bangun Ruang</p>
+            <p>✅ Dengarkan Materi</p>
+            <p>✅ Selesaikan Quiz</p>
+
+        </div>
+
+        <button class="play-btn"
+        onclick="location.href='pages/materi.html'">
+
+            🚀 Mulai Petualangan
+
+        </button>
+
+        <button class="quiz-btn"
+        onclick="location.href='pages/level.html'">
+
+            🏆 Mini Quiz
+
+        </button>
+
+        <button class="info-btn" onclick="openInfo()">
+
+    📚 Informasi
+
+</button>
+
+        <!-- <div class="level">
+
+            ⭐ Level 1 Explorer
+
+        </div> -->
+
+    </div>
+
+</div>
+
+<!-- ===========================
+POPUP INFORMASI
+=========================== -->
+
+<div id="infoModal" class="info-modal">
+
+    <div class="info-content">
+
+        <h2>📚 Tentang Aplikasi</h2>
+
+        <p>
+        <b>Math AR Adventure</b> merupakan media pembelajaran
+        interaktif berbasis <b>Augmented Reality (AR)</b> yang
+        membantu siswa mengenal bangun ruang secara lebih menarik.
+        </p>
+
+        <hr>
+
+        <h3>🎯 Tujuan Pembelajaran</h3>
+
+        <ul>
+            <li>Mengenal bentuk bangun ruang.</li>
+            <li>Mengetahui ciri-ciri setiap bangun.</li>
+            <li>Melihat objek 3D menggunakan AR.</li>
+            <li>Mengukur pemahaman melalui quiz.</li>
+        </ul>
+
+        <hr>
+
+        <h3>📦 Materi</h3>
+
+        <ul>
+            <li>⚽ Bola</li>
+            <li>🧊 Kubus</li>
+            <li>📦 Balok</li>
+            <li>🔺 Kerucut</li>
+        </ul>
+
+        <hr>
+
+        <h3>🚀 Cara Menggunakan</h3>
+
+        <ol>
+            <li>Klik <b>Mulai Petualangan</b>.</li>
+            <li>Pilih bangun ruang.</li>
+            <li>Arahkan kamera ke marker.</li>
+            <li>Dengarkan materi.</li>
+            <li>Selesaikan aktivitas.</li>
+            <li>Kerjakan Mini Quiz.</li>
+        </ol>
+
+        <button onclick="closeInfo()">
+
+            Tutup
+
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+
+function openInfo(){
+
+document.getElementById("infoModal").style.display="flex";
+
+}
+
+function closeInfo(){
+
+document.getElementById("infoModal").style.display="none";
+
+}
+
+const bgMusic = document.getElementById("bgMusic");
+
+bgMusic.volume = 0.15;
+
+// Browser HP biasanya butuh interaksi user
+document.addEventListener("click", function () {
+
+    if (bgMusic.paused) {
+        bgMusic.play().catch(()=>{});
+    }
+
+}, { once:true });
+
+
+
+const bgMusic = document.getElementById("bgMusic");
+
+bgMusic.volume = 0.15;
+
+const currentTime = localStorage.getItem("musicTime");
+
+if(currentTime){
+    bgMusic.currentTime = currentTime;
+}
+
+document.addEventListener("click",()=>{
+
+    bgMusic.play().catch(()=>{});
+
+},{once:true});
+
+setInterval(()=>{
+
+    localStorage.setItem("musicTime",bgMusic.currentTime);
+
+},1000);
+
+
+
+</script>
+
+</body>
+</html>

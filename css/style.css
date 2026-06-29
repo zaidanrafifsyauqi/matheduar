@@ -1,0 +1,659 @@
+/* =========================
+   GLOBAL
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Comic Sans MS', sans-serif;
+}
+
+body{
+    min-height:100vh;
+}
+
+/* =========================
+   HOME PAGE
+========================= */
+
+.sky{
+    min-height:100vh;
+
+    background:linear-gradient(
+        to bottom,
+        #87CEEB,
+        #BFEFFF
+    );
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    position:relative;
+    overflow:hidden;
+}
+
+.game-card{
+
+    background:rgba(255,255,255,0.95);
+
+    width:90%;
+    max-width:550px;
+
+    padding:30px;
+
+    border-radius:30px;
+
+    text-align:center;
+
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+
+    z-index:10;
+}
+
+.game-card h1{
+    color:#2196f3;
+    margin-bottom:10px;
+}
+
+.game-card h3{
+    color:#ff9800;
+    margin-bottom:15px;
+}
+
+.shapes{
+    font-size:55px;
+    margin:20px 0;
+}
+
+.mission{
+
+    background:#fff9c4;
+
+    padding:15px;
+
+    border-radius:15px;
+
+    border:3px solid #ffd54f;
+
+    margin:20px 0;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+button{
+
+    width:100%;
+
+    padding:15px;
+
+    margin-top:10px;
+
+    border:none;
+
+    border-radius:15px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.03);
+}
+
+.play-btn{
+    background:#f44336;
+    color:white;
+}
+
+.quiz-btn{
+    background:#ffeb3b;
+    color:black;
+}
+
+.info-btn{
+    background:#8bc34a;
+    color:white;
+}
+
+/* =========================
+   LEVEL
+========================= */
+
+.level{
+
+    margin-top:20px;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    color:#ff9800;
+}
+
+/* =========================
+   DEKORASI
+========================= */
+
+.sun{
+
+    position:absolute;
+
+    top:20px;
+    left:20px;
+
+    font-size:90px;
+}
+
+.cloud{
+
+    position:absolute;
+
+    font-size:70px;
+
+    opacity:0.8;
+
+    animation:cloudMove 15s linear infinite;
+}
+
+.cloud1{
+    top:40px;
+    left:250px;
+}
+
+.cloud2{
+    top:120px;
+    right:150px;
+}
+
+.cloud3{
+    bottom:150px;
+    left:100px;
+}
+
+@keyframes cloudMove{
+
+    0%{
+        transform:translateX(-30px);
+    }
+
+    50%{
+        transform:translateX(30px);
+    }
+
+    100%{
+        transform:translateX(-30px);
+    }
+}
+
+/* =========================
+   BANGUN RUANG MELAYANG
+========================= */
+
+.floating{
+
+    position:absolute;
+
+    font-size:70px;
+
+    animation:float 3s ease-in-out infinite;
+}
+
+.cube{
+    left:10%;
+    top:20%;
+}
+
+.ball{
+    right:10%;
+    top:20%;
+}
+
+.box{
+    left:12%;
+    bottom:20%;
+}
+
+.cone{
+    right:12%;
+    bottom:20%;
+}
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-15px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+}
+
+/* =========================
+   POHON
+========================= */
+
+.tree-left{
+
+    position:absolute;
+
+    left:20px;
+    bottom:20px;
+
+    font-size:90px;
+}
+
+.tree-right{
+
+    position:absolute;
+
+    right:20px;
+    bottom:20px;
+
+    font-size:90px;
+}
+
+/* =========================
+   QUIZ PAGE
+========================= */
+
+.quiz-page{
+
+    min-height:100vh;
+
+    background:linear-gradient(
+        to bottom,
+        #87CEEB,
+        #BFEFFF
+    );
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.quiz-card{
+
+    background:white;
+
+    width:90%;
+    max-width:700px;
+
+    padding:30px;
+
+    border-radius:30px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+
+    text-align:center;
+
+    z-index:10;
+}
+
+.quiz-card h1{
+    color:#2196f3;
+}
+.quiz-card h2{
+
+    font-size:28px;
+
+    color:#333;
+
+    margin:20px 0;
+}
+
+.quiz-card p{
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    color:#ff9800;
+}
+
+.level-badge{
+
+    background:#ffd54f;
+
+    padding:10px;
+
+    border-radius:20px;
+
+    margin:15px 0;
+
+    font-weight:bold;
+}
+
+/* =========================
+   PROGRESS
+========================= */
+
+.progress-container{
+
+    width:100%;
+
+    height:25px;
+
+    background:#ddd;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    margin:20px 0;
+}
+
+#progress-bar{
+
+    width:0%;
+
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        #ffeb3b,
+        #ff9800
+    );
+
+    transition:.5s;
+}
+
+/* =========================
+   JAWABAN
+========================= */
+
+.answer{
+
+    margin-top:12px;
+}
+
+.btn-yellow{
+    background:#FFD600;
+    color:black;
+}
+
+.btn-green{
+    background:#7CFC00;
+    color:black;
+}
+
+.btn-blue{
+    background:#42A5F5;
+    color:white;
+}
+
+.btn-red{
+    background:#FF5252;
+    color:white;
+}
+
+/* =========================
+   FEEDBACK
+========================= */
+
+#feedback{
+
+    margin:15px 0;
+
+    padding:15px;
+
+    border-radius:15px;
+
+    display:none;
+
+    font-weight:bold;
+}
+
+.correct{
+
+    background:#d4edda;
+
+    border:2px solid #28a745;
+
+    color:#155724;
+}
+
+.wrong{
+
+    background:#f8d7da;
+
+    border:2px solid #dc3545;
+
+    color:#721c24;
+}
+
+.score-box{
+
+    margin-top:20px;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    color:#ff9800;
+}
+
+/* =========================
+   HASIL PAGE
+========================= */
+
+.result-card{
+
+    background:white;
+
+    width:90%;
+    max-width:600px;
+
+    padding:30px;
+
+    border-radius:30px;
+
+    text-align:center;
+
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+
+    z-index:10;
+}
+
+.big-score{
+
+    font-size:80px;
+
+    font-weight:bold;
+
+    color:#2196f3;
+}
+
+.big-star{
+
+    font-size:50px;
+
+    margin:20px 0;
+}
+
+#badge{
+
+    font-size:28px;
+
+    font-weight:bold;
+
+    color:#ff9800;
+
+    margin-bottom:20px;
+}
+.level-btn{
+
+    color:white;
+
+    font-size:20px;
+
+    margin-top:12px;
+}
+
+.level1{
+    background:#4CAF50;
+}
+
+.level2{
+    background:#2196F3;
+}
+
+.level3{
+    background:#FF9800;
+}
+
+.level4{
+    background:#9C27B0;
+}
+
+.level5{
+    background:#F44336;
+}
+
+/* ===========================
+INFO MODAL
+=========================== */
+
+.info-modal{
+
+display:none;
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:rgba(0,0,0,.55);
+
+z-index:99999;
+
+justify-content:center;
+
+align-items:center;
+
+padding:20px;
+
+}
+
+.info-content{
+
+background:white;
+
+width:100%;
+
+max-width:420px;
+
+max-height:85vh;
+
+overflow-y:auto;
+
+border-radius:20px;
+
+padding:25px;
+
+box-shadow:0 10px 30px rgba(0,0,0,.3);
+
+animation:popup .25s ease;
+
+}
+
+.info-content h2{
+
+color:#2196F3;
+
+margin-bottom:15px;
+
+text-align:center;
+
+}
+
+.info-content h3{
+
+margin-top:18px;
+
+margin-bottom:8px;
+
+color:#4CAF50;
+
+}
+
+.info-content p,
+.info-content li{
+
+line-height:1.7;
+
+font-size:15px;
+
+}
+
+.info-content button{
+
+margin-top:20px;
+
+width:100%;
+
+padding:14px;
+
+border:none;
+
+border-radius:12px;
+
+background:#4CAF50;
+
+color:white;
+
+font-size:16px;
+
+cursor:pointer;
+
+}
+
+.info-content hr{
+
+margin:18px 0;
+
+border:none;
+
+border-top:1px solid #ddd;
+
+}
+
+@keyframes popup{
+
+from{
+
+transform:scale(.8);
+
+opacity:0;
+
+}
+
+to{
+
+transform:scale(1);
+
+opacity:1;
+
+}
+
+}

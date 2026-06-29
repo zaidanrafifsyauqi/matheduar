@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hasil Quiz</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="quiz-page">
+
+<div class="sun">☀️</div>
+
+<div class="result-card">
+
+    <h1>🎉 Misi Selesai!</h1>
+
+    <h3>Petualangan Berhasil Diselesaikan</h3>
+
+    <div id="score" class="big-score"></div>
+
+    <div id="star" class="big-star"></div>
+
+    <div id="badge"></div>
+
+    <button onclick="location.href='../index.html'">
+        🏠 Kembali ke Home
+    </button>
+
+</div>
+
+<script>
+
+const score =
+parseInt(localStorage.getItem("score")) || 0;
+
+document.getElementById("score").innerHTML =
+score;
+
+let stars = "⭐";
+let badge = "";
+
+if(score >= 100)
+{
+stars = "⭐⭐⭐⭐⭐";
+badge = "🏆 Ahli Bangun Ruang";
+}
+else if(score >= 80)
+{
+stars = "⭐⭐⭐⭐";
+badge = "🌟 Hebat";
+}
+else if(score >= 60)
+{
+stars = "⭐⭐⭐";
+badge = "👍 Baik";
+}
+else
+{
+stars = "⭐⭐";
+badge = "📚 Terus Belajar";
+}
+
+document.getElementById("star").innerHTML =
+stars;
+
+document.getElementById("badge").innerHTML =
+badge;
+
+</script>
+
+</body>
+</html>
