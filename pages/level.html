@@ -1,77 +1,113 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Pilih Level</title>
+<title>Pilih Level Quiz</title>
 
 <link rel="stylesheet" href="../css/style.css">
+
 </head>
 
 <body class="quiz-page">
+
+<!-- Dekorasi -->
 
 <div class="sun">☀️</div>
 
 <div class="cloud cloud1">☁️</div>
 <div class="cloud cloud2">☁️</div>
 
-<div class="floating cube">🧊</div>
-<div class="floating ball">⚽</div>
+<div class="floating cube">⬜</div>
+<div class="floating ball">⚪</div>
+<div class="floating box">▭</div>
+<div class="floating cone">🔺</div>
 
 <div class="tree-left">🌳</div>
 <div class="tree-right">🌳</div>
 
+<!-- ===========================
+CARD LEVEL
+=========================== -->
+
 <div class="quiz-card">
 
-    <h1>🏆 Pilih Level Quiz</h1>
+<h1>📝 Pilih Level Quiz</h1>
 
-    <p>
-        Selesaikan semua level untuk menjadi
-        Ahli Bangun Ruang!
-    </p>
+<p>
 
-    <button class="level-btn level1"
-    onclick="startLevel(1)">
-        ⭐ Level 1 - Explorer
-    </button>
+Uji pemahamanmu tentang
+<b>Bangun Datar</b>.
+Selesaikan setiap level untuk menjadi
+<b>Ahli Bangun Datar!</b>
 
-    <button class="level-btn level2"
-    onclick="startLevel(2)">
-        ⭐ Level 2 - Adventurer
-    </button>
+</p>
 
-    <button class="level-btn level3"
-    onclick="startLevel(3)">
-        ⭐ Level 3 - Master
-    </button>
+<button
+class="level-btn level1"
+onclick="startLevel(1)">
 
-    <button class="level-btn level4"
-    onclick="startLevel(4)">
-        ⭐ Level 4 - Champion
-    </button>
+🟢 Level 1 - Dasar
 
-    <button class="level-btn level5"
-    onclick="startLevel(5)">
-        ⭐ Level 5 - Legend
-    </button>
+</button>
 
-    <button onclick="location.href='../index.html'">
-        🏠 Kembali
-    </button>
+<button
+class="level-btn level2"
+onclick="startLevel(2)">
+
+🔵 Level 2 - Mudah
+
+</button>
+
+<button
+class="level-btn level3"
+onclick="startLevel(3)">
+
+🟡 Level 3 - Sedang
+
+</button>
+
+<button
+class="level-btn level4"
+onclick="startLevel(4)">
+
+🟠 Level 4 - Sulit
+
+</button>
+
+<button
+class="level-btn level5"
+onclick="startLevel(5)">
+
+🔴 Level 5 - Ahli
+
+</button>
+
+<button
+style="background:#42A5F5;color:white;"
+onclick="location.href='../index.html'">
+
+🏠 Kembali ke Home
+
+</button>
 
 </div>
 
 <script>
 
-function startLevel(level)
-{
+function startLevel(level){
+
     localStorage.setItem("level", level);
 
-    window.location.href = "quiz.html";
+    window.location.href="quiz.html";
+
 }
 
 </script>
 
 </body>
+
 </html>
