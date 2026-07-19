@@ -5,33 +5,33 @@
 const level1 = [
 
 {
-question:"Bola memiliki berapa rusuk?",
-answers:["0","6","8","12"],
-correct:0
-},
-
-{
-question:"Kubus memiliki berapa sisi?",
-answers:["4","5","6","8"],
-correct:2
-},
-
-{
-question:"Kubus memiliki berapa rusuk?",
-answers:["8","10","12","14"],
-correct:2
-},
-
-{
-question:"Balok memiliki berapa titik sudut?",
-answers:["6","8","10","12"],
+question:"Bangun datar yang memiliki 4 sisi sama panjang adalah?",
+answers:["Lingkaran","Persegi","Segitiga","Trapesium"],
 correct:1
 },
 
 {
-question:"Bangun ruang yang tidak memiliki titik sudut adalah?",
-answers:["Kubus","Balok","Bola","Prisma"],
+question:"Bangun datar yang memiliki satu titik pusat adalah?",
+answers:["Persegi","Segitiga","Lingkaran","Segi Lima"],
 correct:2
+},
+
+{
+question:"Segitiga memiliki berapa sisi?",
+answers:["2","3","4","5"],
+correct:1
+},
+
+{
+question:"Persegi panjang memiliki berapa sisi?",
+answers:["3","4","5","6"],
+correct:1
+},
+
+{
+question:"Bangun datar yang berbentuk bulat adalah?",
+answers:["Persegi","Lingkaran","Segitiga","Trapesium"],
+correct:1
 }
 
 ];
@@ -43,33 +43,33 @@ correct:2
 const level2 = [
 
 {
-question:"Kubus memiliki sisi berbentuk?",
-answers:["Segitiga","Persegi","Lingkaran","Oval"],
-correct:1
-},
-
-{
-question:"Balok memiliki berapa pasang sisi sejajar?",
-answers:["1","2","3","4"],
+question:"Persegi memiliki berapa titik sudut?",
+answers:["2","3","4","5"],
 correct:2
 },
 
 {
-question:"Bola memiliki sisi?",
-answers:["Datar","Lengkung","Persegi","Segitiga"],
+question:"Persegi panjang memiliki sisi yang saling?",
+answers:["Melengkung","Sejajar","Bulat","Tidak beraturan"],
 correct:1
 },
 
 {
-question:"Kubus dan Balok memiliki?",
-answers:["Titik Sudut","Lingkaran","Busur","Jari-jari"],
+question:"Lingkaran memiliki berapa titik sudut?",
+answers:["0","1","2","4"],
 correct:0
 },
 
 {
-question:"Bangun ruang yang memiliki sisi lengkung adalah?",
-answers:["Kubus","Balok","Bola","Prisma"],
-correct:2
+question:"Segitiga memiliki berapa titik sudut?",
+answers:["2","3","4","5"],
+correct:1
+},
+
+{
+question:"Bangun datar yang memiliki 4 sisi tetapi tidak semuanya sama panjang adalah?",
+answers:["Persegi","Persegi Panjang","Lingkaran","Segitiga"],
+correct:1
 }
 
 ];
@@ -81,32 +81,32 @@ correct:2
 const level3 = [
 
 {
-question:"Kubus memiliki berapa titik sudut?",
-answers:["6","8","10","12"],
+question:"Jajar genjang memiliki berapa pasang sisi sejajar?",
+answers:["1","2","3","4"],
 correct:1
 },
 
 {
-question:"Balok memiliki berapa rusuk?",
-answers:["10","12","14","16"],
-correct:1
-},
-
-{
-question:"Kubus memiliki berapa sisi?",
-answers:["4","5","6","8"],
-correct:2
-},
-
-{
-question:"Bola memiliki berapa titik sudut?",
-answers:["0","2","4","8"],
+question:"Belah ketupat memiliki sisi yang?",
+answers:["Semua sama panjang","Semua berbeda","Melengkung","Tidak beraturan"],
 correct:0
 },
 
 {
-question:"Balok memiliki berapa sisi?",
-answers:["4","5","6","8"],
+question:"Layang-layang memiliki berapa pasang sisi yang sama panjang?",
+answers:["1","2","3","4"],
+correct:1
+},
+
+{
+question:"Trapesium memiliki minimal berapa pasang sisi sejajar?",
+answers:["1","2","3","4"],
+correct:0
+},
+
+{
+question:"Segi lima memiliki berapa sisi?",
+answers:["3","4","5","6"],
 correct:2
 }
 
@@ -119,33 +119,33 @@ correct:2
 const level4 = [
 
 {
-question:"Bangun ruang manakah yang memiliki 12 rusuk?",
-answers:["Bola","Kubus","Keduanya","Tidak ada"],
-correct:1
+question:"Segi enam memiliki berapa sisi?",
+answers:["4","5","6","7"],
+correct:2
 },
 
 {
-question:"Bangun ruang yang memiliki sisi lengkung adalah?",
-answers:["Bola","Kubus","Balok","Prisma"],
+question:"Jumlah sudut pada persegi adalah?",
+answers:["90°","180°","270°","360°"],
+correct:3
+},
+
+{
+question:"Lingkaran memiliki sudut sebanyak?",
+answers:["0","1","2","4"],
 correct:0
 },
 
 {
-question:"Jika suatu bangun memiliki 8 titik sudut dan 12 rusuk maka bangun tersebut adalah?",
-answers:["Bola","Kubus","Segitiga","Lingkaran"],
+question:"Bangun datar yang memiliki 5 sisi disebut?",
+answers:["Segitiga","Segi Lima","Segi Enam","Trapesium"],
 correct:1
 },
 
 {
-question:"Bola memiliki berapa sisi lengkung?",
-answers:["0","1","2","3"],
-correct:1
-},
-
-{
-question:"Kubus memiliki bentuk sisi?",
-answers:["Lingkaran","Persegi","Oval","Segitiga"],
-correct:1
+question:"Bangun datar yang memiliki 6 sisi disebut?",
+answers:["Segi Empat","Segi Lima","Segi Enam","Lingkaran"],
+correct:2
 }
 
 ];
@@ -157,33 +157,33 @@ correct:1
 const level5 = [
 
 {
-question:"Bangun ruang tanpa rusuk adalah?",
-answers:["Kubus","Balok","Bola","Prisma"],
+question:"Bangun datar yang memiliki empat sisi sama panjang dan empat sudut siku-siku adalah?",
+answers:["Persegi","Belah Ketupat","Trapesium","Layang-layang"],
+correct:0
+},
+
+{
+question:"Bangun datar yang memiliki satu titik pusat adalah?",
+answers:["Persegi","Segitiga","Lingkaran","Segi Lima"],
 correct:2
 },
 
 {
-question:"Kubus memiliki berapa sisi?",
-answers:["4","5","6","8"],
-correct:2
-},
-
-{
-question:"Balok memiliki berapa titik sudut?",
-answers:["6","8","10","12"],
+question:"Bangun datar yang memiliki tiga sisi adalah?",
+answers:["Persegi","Segitiga","Lingkaran","Segi Enam"],
 correct:1
 },
 
 {
-question:"Bangun ruang dengan sisi lengkung adalah?",
-answers:["Kubus","Balok","Bola","Prisma"],
-correct:2
+question:"Bangun datar yang memiliki lima sisi disebut?",
+answers:["Segi Empat","Segi Lima","Segi Enam","Trapesium"],
+correct:1
 },
 
 {
-question:"Kubus memiliki berapa rusuk?",
-answers:["8","10","12","14"],
-correct:2
+question:"Bangun datar yang memiliki enam sisi disebut?",
+answers:["Segi Lima","Segi Enam","Lingkaran","Persegi"],
+correct:1
 }
 
 ];
@@ -199,23 +199,23 @@ let levelName = "";
 
 if(level === 1)
 {
-    levelName = "⭐ Level 1 - Explorer";
+    levelName = "🟢 Level 1 - Dasar";
 }
 else if(level === 2)
 {
-    levelName = "⭐⭐ Level 2 - Adventurer";
+    levelName = "🔵 Level 2 - Mudah";
 }
 else if(level === 3)
 {
-    levelName = "⭐⭐⭐ Level 3 - Master";
+    levelName = "🟡 Level 3 - Sedang";
 }
 else if(level === 4)
 {
-    levelName = "⭐⭐⭐⭐ Level 4 - Champion";
+    levelName = "🟠 Level 4 - Sulit";
 }
 else
 {
-    levelName = "⭐⭐⭐⭐⭐ Level 5 - Legend";
+    levelName = "🔴 Level 5 - Ahli";
 }
 
 // =========================
