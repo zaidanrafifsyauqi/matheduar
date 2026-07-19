@@ -469,7 +469,8 @@ trackingMethod: best;
 sourceType: webcam;
 debugUIEnabled:false;
 videoTexture:true;
-">
+"
+loading-screen="enabled:false">
 
 <a-assets>
 
@@ -531,10 +532,25 @@ document.getElementById(id).style.display="block";
 
 }
 
-window.addEventListener("resize", () => {
+window.addEventListener("load", () => {
+
     setTimeout(() => {
-        window.dispatchEvent(new Event("orientationchange"));
-    }, 300);
+
+        const video = document.querySelector("video");
+
+        if(video){
+
+            video.style.position = "fixed";
+            video.style.top = "0";
+            video.style.left = "0";
+            video.style.width = "100vw";
+            video.style.height = "100vh";
+            video.style.objectFit = "cover";
+
+        }
+
+    },1000);
+
 });
 
 </script>
