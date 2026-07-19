@@ -468,9 +468,7 @@ arjs="
 trackingMethod: best;
 sourceType: webcam;
 debugUIEnabled:false;
-videoTexture:true;
-"
-loading-screen="enabled:false">
+">
 
 <a-assets>
 
@@ -485,7 +483,17 @@ src="../assets/models/persegi.glb">
 type="pattern"
 url="../assets/markers/pattern-persegi.patt">
 
-<a-gltf-model src="#persegiModel" position="0 0.2 0" rotation="0 0 0" scale="0.7 0.7 0.7" animation=" property: rotation; to: 0 360 0; loop:true; dur:4000;"> </a-gltf-model>
+<a-gltf-model
+    src="#persegiModel"
+    position="0 0.1 0"
+    rotation="0 0 0"
+    scale="0.4 0.4 0.4"
+    animation="
+        property: rotation;
+        to: 0 360 0;
+        loop:true;
+        dur:4000;">
+</a-gltf-model>
 
 </a-marker>
 
