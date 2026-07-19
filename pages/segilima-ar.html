@@ -1,0 +1,544 @@
+```html
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+<title>Math AR Adventure - segilima</title>
+
+<script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Comic Sans MS,sans-serif;
+}
+
+html,
+body{
+    width:100vw;
+    height:100vh;
+    overflow:hidden !important;
+    position:fixed;
+    inset:0;
+    touch-action:none;
+}
+
+/* ==========================
+AR CANVAS (WAJIB)
+========================== */
+
+a-scene{
+    position:fixed !important;
+    inset:0 !important;
+    width:100vw !important;
+    height:100vh !important;
+    overflow:hidden !important;
+}
+
+.a-canvas,
+canvas.a-canvas{
+    position:fixed !important;
+    inset:0 !important;
+
+    width:100vw !important;
+    height:100vh !important;
+
+    max-width:100vw !important;
+    max-height:100vh !important;
+
+    transform:none !important;
+}
+
+/* ==========================
+HEADER
+========================== */
+
+.header{
+    position:fixed;
+    top:10px;
+    left:50%;
+    transform:translateX(-50%);
+    width:92%;
+    padding:10px 14px;
+    background:rgba(255,255,255,.95);
+    border-radius:16px;
+    display:flex;
+    gap:10px;
+    align-items:center;
+    z-index:9999;
+}
+
+.header h2{
+    font-size:17px;
+    color:#2196F3;
+}
+
+.header p{
+    font-size:12px;
+}
+
+/* ==========================
+MISSION
+========================== */
+
+#mission{
+    position:fixed;
+    top:72px;
+    left:50%;
+    transform:translateX(-50%);
+    width:92%;
+    padding:10px;
+    text-align:center;
+    font-size:14px;
+    background:#FFF9C4;
+    border:2px solid #FFD54F;
+    border-radius:15px;
+    z-index:9999;
+}
+
+/* ==========================
+SCAN
+========================== */
+
+.scan-box{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:180px;
+    height:180px;
+    border:4px dashed #fff;
+    border-radius:20px;
+    pointer-events:none;
+    z-index:999;
+}
+
+.scan-text{
+    position:fixed;
+    left:50%;
+    bottom:150px;
+    transform:translateX(-50%);
+    width:90%;
+    text-align:center;
+    color:white;
+    background:rgba(0,0,0,.6);
+    padding:8px;
+    border-radius:15px;
+    font-size:13px;
+    z-index:9999;
+}
+
+/* ==========================
+FLOATING MENU
+========================== */
+
+.floating-menu{
+    position:fixed;
+    left:50%;
+    bottom:82px;
+    transform:translateX(-50%);
+    display:flex;
+    gap:18px;
+    z-index:9999;
+}
+
+.floating-menu button{
+    width:58px;
+    height:58px;
+    border:none;
+    border-radius:50%;
+    background:white;
+    font-size:24px;
+    box-shadow:0 5px 15px rgba(0,0,0,.25);
+}
+
+/* ==========================
+BUTTON
+========================== */
+
+.btn{
+    position:fixed;
+    bottom:15px;
+    width:42%;
+    padding:12px;
+    border:none;
+    border-radius:14px;
+    color:white;
+    font-size:14px;
+    font-weight:bold;
+    z-index:9999;
+}
+
+.home{
+    left:10px;
+    background:#2196F3;
+}
+
+.quiz{
+    right:10px;
+    background:#4CAF50;
+}
+
+.quiz:disabled{
+    background:#888;
+}
+
+/* ==========================
+PANEL
+========================== */
+
+.panel{
+    display:none;
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    width:100%;
+    max-height:60vh;
+    overflow:auto;
+    background:white;
+    padding:20px;
+    border-radius:25px 25px 0 0;
+    z-index:99999;
+}
+
+.panel h3{
+    margin-bottom:15px;
+}
+
+.panel button{
+    width:100%;
+    margin-top:18px;
+    padding:12px;
+    border:none;
+    border-radius:12px;
+    background:#4CAF50;
+    color:white;
+}
+
+/* ==========================
+TASK
+========================== */
+
+.task-btn{
+    width:100%;
+    padding:10px;
+    margin-top:8px;
+    border:none;
+    border-radius:10px;
+    background:#4CAF50;
+    color:white;
+}
+
+.task-btn:disabled{
+    background:#bbb;
+}
+
+/* ==========================
+PROGRESS
+========================== */
+
+.progress{
+    width:100%;
+    height:15px;
+    background:#ddd;
+    border-radius:20px;
+    overflow:hidden;
+    margin-top:15px;
+}
+
+#progressBar{
+    width:0%;
+    height:100%;
+    background:#4CAF50;
+}
+
+/* ==========================
+OVERLAY
+========================== */
+
+#overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.4);
+    z-index:99998;
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<div id="overlay" onclick="closePanel()"></div>
+
+<div class="header">
+
+<div style="font-size:40px;">⭐</div>
+
+<div>
+
+<h2>Math AR Adventure</h2>
+
+<p>Belajar Bangun Datar</p>
+
+</div>
+
+</div>
+
+<div id="mission">
+
+🔍 Arahkan kamera ke kartu segilima
+
+</div>
+
+<!-- Floating Menu -->
+
+<div class="floating-menu">
+
+<button onclick="togglePanel('infoPanel')">
+ⓘ
+</button>
+
+<button onclick="togglePanel('progressPanel')">
+⭐
+</button>
+
+<button onclick="togglePanel('taskPanel')">
+🎯
+</button>
+
+</div>
+
+
+<!-- INFO PANEL -->
+
+<div id="infoPanel" class="panel">
+
+<h3>⭐ Segi Lima</h3>
+
+<p>
+
+• Memiliki 5 sisi<br>
+• Memiliki 5 titik sudut<br>
+• Memiliki 5 sudut<br>
+• Semua sisi saling bertemu membentuk bangun tertutup
+
+</p>
+
+<hr>
+
+<h3>📚 Contoh</h3>
+
+<p>
+
+🏠 Atap gazebo<br>
+⭐ Bentuk bintang (bagian dalam)<br>
+🛡️ Lambang berbentuk segi lima
+
+</p>
+
+<button onclick="closePanel()">
+
+Tutup
+
+</button>
+
+</div>
+
+<!-- TASK PANEL -->
+
+<div id="taskPanel" class="panel">
+
+<h3>🎯 Aktivitas</h3>
+
+<div id="task1">⬜ Scan kartu</div>
+
+<div id="task2">⬜ Dengarkan audio</div>
+
+<div id="task3">
+
+⬜ Kelilingi objek
+
+<br><br>
+
+<button
+id="btnKeliling"
+class="task-btn"
+disabled>
+
+✔ Saya Sudah
+
+</button>
+
+</div>
+
+<div id="task4">
+
+⬜ Putar kartu
+
+<br><br>
+
+<button
+id="btnPutar"
+class="task-btn"
+disabled>
+
+✔ Sudah Diputar
+
+</button>
+
+</div>
+
+<div id="task5">
+
+⬜ Quiz
+
+</div>
+
+<button onclick="closePanel()">
+
+Tutup
+
+</button>
+
+</div>
+
+<!-- PROGRESS PANEL -->
+
+<div id="progressPanel" class="panel">
+
+<h3>⭐ Progress Belajar</h3>
+
+<div class="progress">
+
+<div id="progressBar"></div>
+
+</div>
+
+<button onclick="closePanel()">
+
+Tutup
+
+</button>
+
+</div>
+
+
+<div class="scan-box"></div>
+
+<div class="scan-text">
+
+Arahkan kartu ke dalam kotak
+
+</div>
+
+<button class="btn home"
+onclick="location.href='../index.html'">
+
+🏠 Home
+
+</button>
+
+<button
+id="quizBtn"
+class="btn quiz"
+disabled>
+
+🔒 Selesaikan Misi
+
+</button>
+
+<a-scene embedded arjs>
+
+<a-assets>
+
+<a-asset-item
+id="segilimaModel"
+src="../assets/models/segilima.glb">
+</a-asset-item>
+
+</a-assets>
+
+<a-marker
+type="pattern"
+url="../assets/markers/pattern-segilima.patt">
+
+<a-gltf-model
+
+src="#segilimaModel"
+
+position="0 0.9 0"
+
+scale="0.9 0.9 0.9"
+
+rotation="0 0 0"
+
+animation="
+property: rotation;
+to: 0 360 0;
+loop: true;
+dur: 4000;">
+
+</a-gltf-model>
+
+</a-marker>
+
+<a-entity camera></a-entity>
+
+</a-scene>
+
+<audio id="segilimaAudio">
+
+<source
+src="../assets/audio/segilima.mp3"
+type="audio/mpeg">
+
+</audio>
+
+<script src="../js/ar.js"></script>
+
+<script>
+
+setupAR(
+"segilimaAudio",
+"Halo teman-teman. Ini adalah bangun datar segi lima. Segi lima memiliki lima sisi, lima titik sudut, dan lima sudut. Semua sisinya saling bertemu membentuk bangun tertutup. Contoh benda yang berbentuk segi lima adalah atap gazebo, lambang berbentuk segi lima, dan beberapa hiasan berbentuk bintang. Yuk, amati bentuk segi lima dari berbagai arah."
+);
+
+function closePanel(){
+
+document.getElementById("overlay").style.display="none";
+
+document.querySelectorAll(".panel").forEach(panel=>{
+
+panel.style.display="none";
+
+});
+
+}
+
+function togglePanel(id){
+
+closePanel();
+
+document.getElementById("overlay").style.display="block";
+
+document.getElementById(id).style.display="block";
+
+}
+
+</script>
+
+</body>
+
+</html>
