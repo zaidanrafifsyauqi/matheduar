@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Materi Bangun Ruang</title>
+<title>Materi Bangun Datar</title>
 
 <link rel="stylesheet" href="../css/style.css">
 
@@ -13,8 +13,8 @@
 
 <body class="sky">
 
-    <audio id="bgMusic" autoplay loop>
-    <source src="assets/audio/audio.mp3" type="audio/mpeg">
+<audio id="bgMusic" autoplay loop>
+    <source src="../assets/audio/audio.mp3" type="audio/mpeg">
 </audio>
 
 <!-- Matahari -->
@@ -26,57 +26,171 @@
 <div class="cloud cloud3">☁️</div>
 
 <!-- Dekorasi -->
-<div class="floating cube">🧊</div>
-<div class="floating ball">⚽</div>
-<div class="floating box">📦</div>
-
-<!-- Card Utama -->
-<div class="game-card">
-
-<h1>📚 Materi Bangun Ruang</h1>
-
-<h3>Pilih Bangun Ruang Yang Ingin Dipelajari</h3>
-
-<p>
-Pelajari bentuk bangun ruang,
-lihat model 3D AR,
-dan dengarkan penjelasannya!
-</p>
-
-<div class="shapes">
-⚽ 🧊 📦
-</div>
-
-<button
-class="play-btn"
-onclick="location.href='bola.html'">
-⚽ Belajar Bola
-</button>
-
-<button
-class="quiz-btn"
-onclick="location.href='kubus.html'">
-🧊 Belajar Kubus
-</button>
-
-<button
-class="info-btn"
-onclick="location.href='balok.html'">
-📦 Belajar Balok
-</button>
-
-<button
-style="background:#42A5F5;color:white;"
-onclick="location.href='../index.html'">
-🏠 Kembali ke Home
-</button>
-
-</div>
+<div class="floating cube">⬜</div>
+<div class="floating ball">⚪</div>
+<div class="floating box">🔺</div>
 
 <div class="tree-left">🌳</div>
 <div class="tree-right">🌳</div>
 
+<!-- ========================= -->
+<!-- CARD -->
+<!-- ========================= -->
 
+<div class="game-card">
+
+<h1>📚 Materi Bangun Datar</h1>
+
+<h3>Pilih Bangun Datar yang Ingin Dipelajari</h3>
+
+<p>
+
+Pilih salah satu bangun datar di bawah ini,
+kemudian pelajari ciri-ciri, sifat,
+contoh benda di kehidupan sehari-hari,
+dan lihat bentuknya menggunakan
+Augmented Reality (AR).
+
+</p>
+
+<div class="shapes">
+
+⬜ ▭ ⚪ 🔺 🔷 💎 🪁 🔶 ⭐ ⬢
+
+</div>
+
+<div class="menu-grid">
+
+<button
+class="btn-persegi"
+onclick="location.href='persegi.html'">
+
+⬜ Persegi
+
+</button>
+
+<button
+class="btn-persegi"
+onclick="location.href='persegipanjang.html'">
+
+▭ Persegi Panjang
+
+</button>
+
+<button
+class="btn-lingkaran"
+onclick="location.href='lingkaran.html'">
+
+⚪ Lingkaran
+
+</button>
+
+<button
+class="btn-segitiga"
+onclick="location.href='segitiga.html'">
+
+🔺 Segitiga
+
+</button>
+
+<button
+class="btn-jajar"
+onclick="location.href='jajargenjang.html'">
+
+🔷 Jajar Genjang
+
+</button>
+
+<button
+class="btn-belah"
+onclick="location.href='belahketupat.html'">
+
+💎 Belah Ketupat
+
+</button>
+
+<button
+class="btn-layang"
+onclick="location.href='layang.html'">
+
+🪁 Layang-Layang
+
+</button>
+
+<button
+class="btn-trapesium"
+onclick="location.href='trapesium.html'">
+
+🔶 Trapesium
+
+</button>
+
+<button
+class="btn-lima"
+onclick="location.href='segilima.html'">
+
+⭐ Segi Lima
+
+</button>
+
+<button
+class="btn-enam"
+onclick="location.href='segienam.html'">
+
+⬢ Segi Enam
+
+</button>
+
+</div>
+
+<br>
+
+
+<!-- ========================= -->
+<!-- HOME -->
+<!-- ========================= -->
+
+<button
+style="background:#42A5F5;color:white;margin-top:18px;"
+onclick="location.href='../index.html'">
+
+🏠 Kembali ke Home
+
+</button>
+
+</div>
+
+<script>
+
+const bgMusic=document.getElementById("bgMusic");
+
+bgMusic.volume=0.15;
+
+const currentTime=localStorage.getItem("musicTime");
+
+if(currentTime){
+
+bgMusic.currentTime=currentTime;
+
+}
+
+document.addEventListener("click",function(){
+
+if(bgMusic.paused){
+
+bgMusic.play().catch(()=>{});
+
+}
+
+},{once:true});
+
+setInterval(function(){
+
+localStorage.setItem("musicTime",bgMusic.currentTime);
+
+},1000);
+
+</script>
 
 </body>
 </html>
