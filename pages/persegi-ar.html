@@ -460,7 +460,18 @@ disabled>
 
 </button>
 
-<a-scene embedded arjs>
+<a-scene
+embedded
+vr-mode-ui="enabled:false"
+renderer="precision: mediump; antialias:true;"
+arjs="
+trackingMethod: best;
+sourceType: webcam;
+debugUIEnabled: false;
+videoTexture: true;
+displayWidth: 1280;
+displayHeight: 720;
+">
 
 <a-assets>
 
@@ -521,6 +532,12 @@ document.getElementById("overlay").style.display="block";
 document.getElementById(id).style.display="block";
 
 }
+
+window.addEventListener("resize", () => {
+    setTimeout(() => {
+        window.dispatchEvent(new Event("orientationchange"));
+    }, 300);
+});
 
 </script>
 
